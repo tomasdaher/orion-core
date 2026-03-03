@@ -1,38 +1,17 @@
-from core.orchestrator import Orchestrator
-from core.rule_engine import Rule
 from core.execution_request import ExecutionRequest, Objective
-from agents.task_agent import TaskAgent
-from agents.decision_agent import DecisionAgent
-from infrastructure.repositories.sqlite_execution_repository import SQLiteExecutionRepository
+from bootstrap import build_system
+
 
 def main():
     print("🚀 Iniciando Orion Core...")
 
-    repository = SQLiteExecutionRepository()
-    orchestrator = Orchestrator(repository)
+    orchestrator = build_system()
 
-    # Registrar agentes
-    task_agent = TaskAgent("Task_Agent")
-    decision_agent = DecisionAgent("Decision_Agent")
-
-    orchestrator.add_agent(task_agent)
-    orchestrator.add_agent(decision_agent)
-
-    # Crear regla basada en objetivo
-    rule = Rule(
-        condition=lambda state: state.get("objective") == Objective.PROCESS,
-        action_agent_name="Decision_Agent"
-    )
-
-    orchestrator.add_rule(rule)
-
-    # Crear request formal
     request = ExecutionRequest(
         objective=Objective.PROCESS,
         data={"input": "example raw data"}
     )
 
-    # Ejecutar sistema
     orchestrator.execute(request)
 
 

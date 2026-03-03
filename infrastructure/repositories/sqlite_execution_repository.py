@@ -26,18 +26,27 @@ class SQLiteExecutionRepository:
             """)
             conn.commit()
 
-    def save(self, execution_request):
+    def save(self, execution_request, state):
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
+
+            # Convertimos todo a string seguro para JSON
+            safe_data = {
+                "request_data": str(execution_request.data),
+                "final_state": str(state._state)
+            }
+
             cursor.execute("""
                 INSERT INTO executions (objective, data, created_at)
                 VALUES (?, ?, ?)
             """, (
                 execution_request.objective.name,
-                json.dumps(execution_request.data),
+                json.dumps(safe_data),
                 datetime.utcnow().isoformat()
             ))
+
             conn.commit()
+            return "sqlite://orion.db"
 
     def get_all(self):
         with sqlite3.connect(self.db_path) as conn:

@@ -3,13 +3,12 @@ from core.rule_engine import Rule
 from core.execution_request import ExecutionRequest, Objective
 from agents.task_agent import TaskAgent
 from agents.decision_agent import DecisionAgent
-from infrastructure.repositories.json_execution_repository import JsonExecutionRepository
-
+from infrastructure.repositories.sqlite_execution_repository import SQLiteExecutionRepository
 
 def main():
     print("🚀 Iniciando Orion Core...")
 
-    repository = JsonExecutionRepository()
+    repository = SQLiteExecutionRepository()
     orchestrator = Orchestrator(repository)
 
     # Registrar agentes

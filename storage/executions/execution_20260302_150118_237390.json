@@ -1,0 +1,20 @@
+{
+    "timestamp": "20260302_150118_237390",
+    "objective": "process",
+    "input_data": {
+        "input": "example raw data"
+    },
+    "final_state": {
+        "objective": "process",
+        "data": {
+            "input": "example raw data"
+        },
+        "processed_data": {
+            "original": {
+                "input": "example raw data"
+            },
+            "status": "processed"
+        },
+        "decision": "processing approved"
+    }
+}

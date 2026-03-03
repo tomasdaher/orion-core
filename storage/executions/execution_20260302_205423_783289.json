@@ -1,0 +1,23 @@
+{
+    "execution_id": "81b44687-48f6-462d-869d-5c692afd07fe",
+    "timestamp": "20260302_205423_783289",
+    "objective": "process",
+    "input_data": {
+        "input": "example raw data"
+    },
+    "final_state": {
+        "objective": "process",
+        "data": {
+            "input": "example raw data"
+        },
+        "execution_id": "81b44687-48f6-462d-869d-5c692afd07fe",
+        "processed_data": {
+            "original": {
+                "input": "example raw data"
+            },
+            "status": "processed"
+        },
+        "decision": "processing approved",
+        "execution_status": "SUCCESS"
+    }
+}

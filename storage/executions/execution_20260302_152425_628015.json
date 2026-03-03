@@ -1,0 +1,14 @@
+{
+    "timestamp": "20260302_152425_628015",
+    "objective": "process",
+    "input_data": {
+        "input": "example raw data"
+    },
+    "final_state": {
+        "objective": "process",
+        "data": {
+            "input": "example raw data"
+        },
+        "execution_status": "FAILED"
+    }
+}

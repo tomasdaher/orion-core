@@ -176,8 +176,6 @@ flowchart TD
     Agent2 --> LocalMemory2
     AgentN --> LocalMemoryN
 
-    SharedMemory --> Repository
-    LocalMemory1 --> Repository
-    LocalMemory2 --> Repository
-    LocalMemoryN --> Repository
+    SharedMemory --> SQLiteRepository
+    SQLiteRepository --> Storage
 ```

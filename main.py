@@ -1,18 +1,29 @@
-from core.execution_request import ExecutionRequest, Objective
+from core.execution_request import Objective
 from bootstrap import build_system
+import logging
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 
 
 def main():
+
     print("🚀 Iniciando Orion Core...")
 
     orchestrator = build_system()
 
-    request = ExecutionRequest(
-        objective=Objective.PROCESS,
-        data={"input": "example raw data"}
-    )
+    state = {
+        "objective": Objective.PROCESS,
+        "input": "example raw data"
+    }
 
-    orchestrator.execute(request)
+    orchestrator.handle_request(
+        Objective.PROCESS,
+        state
+    )
 
 
 if __name__ == "__main__":

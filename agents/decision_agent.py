@@ -1,18 +1,18 @@
+from agents.base_agent import BaseAgent
 from core.execution_request import Objective
 
 
-class DecisionAgent:
-    def __init__(self, name):
-        self.name = name
+class DecisionAgent(BaseAgent):
+    name = "Decision_Agent"
+    objective = Objective.PROCESS
+    priority = 2
 
-    def act(self, state):
-        objective = state.get("objective")
-
-        if objective == Objective.PROCESS:
-            state.set("decision", "processing approved")
-        elif objective == Objective.VALIDATE:
-            state.set("decision", "validation approved")
-        elif objective == Objective.EXECUTE:
-            state.set("decision", "execution approved")
+    def execute(self, state: dict) -> dict:
+        if "processed_data" in state:
+            state["decision"] = "processing approved"
+            state["execution_status"] = "SUCCESS"
         else:
-            state.set("decision", "no action")
+            state["decision"] = "processing failed"
+            state["execution_status"] = "FAILED"
+
+        return state

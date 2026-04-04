@@ -1,0 +1,11 @@
+{
+    "steps": [
+        "run_capability:lead_capture",
+        "run_capability:lead_cleaner",
+        "run_capability:lead_classifier",
+        "run_capability:lead_storage",
+        "run_capability:lead_notifier"
+    ],
+    "source": "automation_planner",
+    "strategy_mode": "generated"
+}

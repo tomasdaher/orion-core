@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-03-25T13:27:33.978515",
+  "capability_file": "test_capability.py",
+  "execution": {
+    "success": false,
+    "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\jesus x Dios\\\\Desktop\\\\mi_primer_proyecto\\\\test_capability.py'"
+  },
+  "validation": {
+    "approved": false,
+    "reason": "execution_failed"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-03-17T17:16:53.744140",
+  "capability_file": "plugins\\webhook_sender.py",
+  "execution": {
+    "success": true,
+    "execution_time": 0.0068359375,
+    "result": {
+      "capability": "WebhookSender",
+      "status": "executed",
+      "data_received": {
+        "sample": "test_input"
+      }
+    }
+  },
+  "validation": {
+    "approved": true,
+    "reason": "valid_capability"
+  }
+}

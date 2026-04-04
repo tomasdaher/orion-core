@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-03-30T00:17:38.980343",
+  "capability_file": "test_capability.py",
+  "execution": {
+    "success": true,
+    "execution_time": 0.0009768009185791016,
+    "result": {
+      "capability": "test_capability",
+      "status": "executed",
+      "data_received": {
+        "data": {
+          "sample": "test_input"
+        }
+      }
+    }
+  },
+  "validation": {
+    "approved": true,
+    "reason": "valid_capability"
+  }
+}

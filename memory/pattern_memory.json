@@ -1,0 +1,13 @@
+{
+  "patterns": {
+    "analyze_input->validate_data->execute_task->retry_failed_tasks->store_result": 1,
+    "analyze_input->validate_data->execute_task->explore_optimization->retry_failed_tasks->store_result": 3,
+    "run_capability:auto_pipeline_1375": 186,
+    "analyze_input->validate_data->execute_task->explore_optimization->store_result": 49,
+    "action:webhook:send->action:api:users": 5,
+    "run_capability:test_capability": 18,
+    "run_capability:webhook_sender->run_capability:user_creator": 55,
+    "run_capability:webhook_sender": 5,
+    "run_capability:webhook_sender->run_capability:user_creator->run_capability:user_segmenter": 5
+  }
+}

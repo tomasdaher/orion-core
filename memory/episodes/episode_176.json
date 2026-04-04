@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-03-17T14:09:49.738281",
+  "request": "PROCESS",
+  "strategy": "capability_execution",
+  "plan": [
+    "run_capability:test_capability"
+  ],
+  "result": "SUCCESS",
+  "execution_time": 0.0390625,
+  "capabilities_used": [
+    "test_capability"
+  ]
+}

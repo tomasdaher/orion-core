@@ -1,0 +1,167 @@
+{
+  "capabilities": [
+    {
+      "name": "standard_processing_pipeline",
+      "steps": [
+        "analyze_input",
+        "validate_data",
+        "execute_task",
+        "store_result"
+      ],
+      "metrics": {
+        "usage_count": 6,
+        "success_count": 6,
+        "avg_execution_time": 0.0
+      },
+      "status": "stable"
+    },
+    {
+      "name": "auto_pipeline_1375",
+      "steps": [
+        "analyze_input",
+        "validate_data",
+        "execute_task",
+        "explore_optimization",
+        "retry_failed_tasks",
+        "store_result"
+      ],
+      "metrics": {
+        "usage_count": 187,
+        "success_count": 186,
+        "avg_execution_time": 0.000235000396157331
+      },
+      "status": "stable"
+    },
+    {
+      "name": "auto_pipeline_9577",
+      "steps": [
+        "analyze_input",
+        "validate_data",
+        "execute_task",
+        "explore_optimization",
+        "retry_failed_tasks",
+        "store_result"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_2645",
+      "steps": [
+        "run_capability:auto_pipeline_1375"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_9577",
+      "steps": [
+        "analyze_input",
+        "validate_data",
+        "execute_task",
+        "explore_optimization",
+        "store_result"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_9050",
+      "steps": [
+        "action:webhook:send",
+        "action:api:users"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_5682",
+      "steps": [
+        "run_capability:test_capability"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_7401",
+      "steps": [
+        "run_capability:webhook_sender",
+        "run_capability:user_creator"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_3185",
+      "steps": [
+        "run_capability:webhook_sender"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_7401",
+      "steps": [
+        "run_capability:webhook_sender",
+        "run_capability:user_creator",
+        "run_capability:user_segmenter"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "meta_pipeline_6439",
+      "steps": [
+        "analyze_input",
+        "validate_data",
+        "execute_task",
+        "explore_optimization",
+        "store_result"
+      ],
+      "type": "meta",
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "meta_pipeline_2655",
+      "steps": [
+        "run_capability:webhook_sender",
+        "run_capability:user_creator",
+        "run_capability:user_segmenter"
+      ],
+      "type": "meta",
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    }
+  ]
+}

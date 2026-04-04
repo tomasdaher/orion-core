@@ -26,30 +26,57 @@ class SQLiteExecutionRepository:
             """)
             conn.commit()
 
-    def save(self, execution_request, state):
+    def save_execution(self, state: dict):
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
-
-            # Convertimos todo a string seguro para JSON
-            safe_data = {
-                "request_data": str(execution_request.data),
-                "final_state": str(state._state)
-            }
 
             cursor.execute("""
                 INSERT INTO executions (objective, data, created_at)
                 VALUES (?, ?, ?)
             """, (
-                execution_request.objective.name,
-                json.dumps(safe_data),
+                state.get("objective").name if state.get("objective") else "UNKNOWN",
+                json.dumps({
+                    "status": state.get("status"),
+                    "execution_history": state.get("execution_history"),
+                    "agents": state.get("agents_executed")
+                }, default=str),
                 datetime.utcnow().isoformat()
             ))
 
             conn.commit()
-            return "sqlite://orion.db"
 
     def get_all(self):
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM executions")
+            return cursor.fetchall()
+
+    def get_last(self):
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT * FROM executions
+                ORDER BY id DESC
+                LIMIT 1
+            """)
+            return cursor.fetchone()
+
+    def get_recent(self, limit: int = 5):
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT * FROM executions
+                ORDER BY id DESC
+                LIMIT ?
+            """, (limit,))
+            return cursor.fetchall()
+
+    def get_by_objective(self, objective_name: str):
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT * FROM executions
+                WHERE objective = ?
+                ORDER BY id DESC
+            """, (objective_name,))
             return cursor.fetchall()

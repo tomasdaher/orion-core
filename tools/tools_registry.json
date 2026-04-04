@@ -1,0 +1,14 @@
+{
+    "tools": [
+        {
+            "name": "hello_tool",
+            "module": "tools.hello_tool",
+            "description": "Simple test tool for Orion"
+        },
+        {
+            "name": "data_formatter",
+            "module": "data_formatter_tool",
+            "enabled": true
+        }
+    ]
+}

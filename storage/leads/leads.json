@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@gmail.com",
+        "source": "generic",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@gmail.com",
+        "source": "instagram",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@hotmail.com",
+        "source": "instagram",
+        "score": 0.5,
+        "segment": "warm"
+    },
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@gmail.com",
+        "source": "instagram",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@gmail.com",
+        "source": "instagram",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Carlos Diaz",
+        "email": "carlos.diaz@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@gmail.com",
+        "source": "instagram",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Maria Gomez",
+        "email": "maria.gomez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    },
+    {
+        "name": "Ana Lopez",
+        "email": "ana.lopez@hotmail.com",
+        "source": "instagram",
+        "score": 0.5,
+        "segment": "warm"
+    },
+    {
+        "name": "Carlos Diaz",
+        "email": "carlos.diaz@gmail.com",
+        "source": "instagram",
+        "score": 0.4,
+        "segment": "cold"
+    },
+    {
+        "name": "Juan Perez",
+        "email": "juan.perez@empresa.com",
+        "source": "instagram",
+        "score": 0.9,
+        "segment": "hot"
+    }
+]

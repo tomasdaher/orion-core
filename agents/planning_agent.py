@@ -1,5 +1,6 @@
 from agents.base_agent import BaseAgent
 from core.execution_request import Objective
+import logging
 
 from capabilities.registry import CapabilityRegistry
 from capabilities.capability_graph import CapabilityGraph
@@ -24,6 +25,9 @@ class PlanningAgent(BaseAgent):
 
         super().__init__()
 
+        # Logger del agente
+        self.logger = logging.getLogger("PlanningAgent")
+        
         self.capability_registry = CapabilityRegistry()
         self.capability_graph = CapabilityGraph()
 
@@ -52,6 +56,9 @@ class PlanningAgent(BaseAgent):
         if state.get("execution_plan"):
             print("🛑 PlanningAgent → existing plan detected, skipping")
             return state
+
+        # 🧠 Autonomous goal generation
+        self.goal_manager.generate_goals(state)
 
         strategy = state.get("system_strategy", {})
         policy = strategy.get("execution_policy", {})

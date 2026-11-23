@@ -4,16 +4,23 @@ class GoalOptimizer:
 
         progress = goal.progress_percentage()
 
-        if progress < 20:
+        history = goal.history
 
-            return "change_strategy"
+        # progreso lento
+        if len(history) > 3:
 
-        if progress < 50:
+            recent = history[-3:]
 
+            values = [h["value"] for h in recent]
+
+            if max(values) - min(values) < 2:
+
+                return "change_strategy"
+
+        if progress < 25:
             return "increase_execution"
 
-        if progress < 80:
-
+        if progress < 75:
             return "maintain_strategy"
 
         return "final_push"

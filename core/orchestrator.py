@@ -67,6 +67,8 @@ from core.planning.adaptive_planner import AdaptivePlanner
 from core.cognition.self_reflection_engine import SelfReflectionEngine
 from core.strategy.capability_strategy_optimizer import CapabilityStrategyOptimizer
 
+from execution.execution_router import ExecutionRouter
+
 class Orchestrator:
 
     # ================================================================
@@ -171,6 +173,12 @@ class Orchestrator:
         self.adaptive_planner = AdaptivePlanner()
         self.reflection_engine = SelfReflectionEngine()
         self.strategy_optimizer = CapabilityStrategyOptimizer()
+
+        # ------------------------------------------------
+        # EXECUTION ROUTER
+        # ------------------------------------------------
+        # Handles skill-level execution before capability layer
+        self.execution_router = ExecutionRouter()
 
     # ================================================================
     # CAPABILITY RESOLUTION
@@ -587,6 +595,33 @@ class Orchestrator:
 
             else:
                 print("❌ No execution_plan after agents")
+
+            # ------------------------------------------------
+            # EXECUTION ROUTER (SKILL LAYER)
+            # ------------------------------------------------
+
+            execution_plan = state.get("execution_plan")
+
+            if execution_plan:
+
+                try:
+
+                    self.logger.info("⚙️ ExecutionRouter processing plan")
+
+                    state = self.execution_router.execute_plan(
+                        execution_plan,
+                        state
+                    )
+
+                except Exception as router_error:
+
+                    self.logger.warning(
+                        f"⚠️ ExecutionRouter failed: {router_error}"
+                    )
+
+            # ------------------------------------------------
+            # CAPABILITY EXECUTION ENGINE
+            # ------------------------------------------------
 
             state = self._execute_plan(state)
 

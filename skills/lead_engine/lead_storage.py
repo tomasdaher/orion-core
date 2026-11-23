@@ -18,3 +18,10 @@ class LeadStorage:
         print(f"💾 Lead stored: {lead.email}")
 
         return state
+
+
+def store_lead(state):
+
+    handler = LeadStorage()
+
+    return handler.execute(state)

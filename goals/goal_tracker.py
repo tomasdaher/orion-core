@@ -2,9 +2,12 @@ class GoalTracker:
 
     def __init__(self):
 
-        self.history = []
+        self.goal_histories = {}
 
     def record(self, goal):
+
+        if goal.id not in self.goal_histories:
+            self.goal_histories[goal.id] = []
 
         snapshot = {
             "goal_id": goal.id,
@@ -13,8 +16,8 @@ class GoalTracker:
             "value": goal.current_value
         }
 
-        self.history.append(snapshot)
+        self.goal_histories[goal.id].append(snapshot)
 
-    def get_history(self):
+    def get_history(self, goal_id):
 
-        return self.history
+        return self.goal_histories.get(goal_id, [])

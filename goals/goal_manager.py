@@ -1,6 +1,9 @@
 from goals.goal_models import Goal, GoalStatus
 from goals.goal_tracker import GoalTracker
 from goals.goal_evaluator import GoalEvaluator
+from goals.goal_generator import GoalGenerator
+from goals.goal_scheduler import GoalScheduler
+from goals.goal_memory import GoalMemory
 
 
 class GoalManager:
@@ -12,6 +15,9 @@ class GoalManager:
 
         self.tracker = GoalTracker()
         self.evaluator = GoalEvaluator()
+        self.generator = GoalGenerator(logger=self.logger)
+        self.scheduler = GoalScheduler(logger=self.logger)
+        self.memory = GoalMemory()
 
     # ----------------------------
     # CREATE GOAL
@@ -57,7 +63,13 @@ class GoalManager:
         self.tracker.record(goal)
 
         if goal.is_completed():
+
             goal.status = GoalStatus.COMPLETED
+
+            self.memory.record_completed(goal)
+
+            if self.logger:
+                self.logger.info(f"🏁 Goal completed: {goal.name}")
 
         return goal
 
@@ -99,3 +111,41 @@ class GoalManager:
             key=lambda g: g.priority,
             reverse=True
         )
+
+    # ----------------------------
+    # REGISTER GOAL OBJECT
+    # ----------------------------
+
+    def register_goal(self, goal):
+
+        self.goals[goal.id] = goal
+
+        if self.logger:
+            self.logger.info(f"🎯 Goal registered: {goal.name}")
+
+        return goal
+
+
+    # ----------------------------
+    # AUTONOMOUS GOAL GENERATION
+    # ----------------------------
+
+    def generate_goals(self, state):
+
+        new_goals = self.generator.generate(state, self)
+
+        for goal in new_goals:
+
+            self.register_goal(goal)
+
+        return new_goals
+
+    # ----------------------------
+    # SCHEDULE GOALS
+    # ----------------------------
+
+    def scheduled_goals(self):
+
+        goals = self.prioritized_goals()
+
+        return self.scheduler.select_goals(goals)

@@ -18,3 +18,10 @@ class LeadCleaner:
         print("🧹 Lead data cleaned")
 
         return state
+
+
+def clean_lead_data(state):
+
+    handler = LeadCleaner()
+
+    return handler.execute(state)

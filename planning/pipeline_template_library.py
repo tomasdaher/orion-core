@@ -5,9 +5,11 @@ class PipelineTemplateLibrary:
         self.templates = {
 
             "increase_lead_conversion": [
+                "acquire_lead",
                 "capture_lead",
                 "clean_data",
                 "classify_lead",
+                "score_lead",
                 "store_lead",
                 "notify_sales"
             ],

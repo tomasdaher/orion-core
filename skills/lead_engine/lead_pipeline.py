@@ -1,9 +1,4 @@
-from skills.lead_engine.lead_capture import LeadCapture
-from skills.lead_engine.lead_cleaner import LeadCleaner
-from skills.lead_engine.lead_classifier import LeadClassifier
-from skills.lead_engine.lead_scorer import LeadScorer
-from skills.lead_engine.lead_storage import LeadStorage
-from skills.lead_engine.lead_notifier import LeadNotifier
+import logging
 
 
 class LeadPipeline:
@@ -12,19 +7,15 @@ class LeadPipeline:
 
     def __init__(self):
 
-        self.steps = [
-            LeadCapture(),
-            LeadCleaner(),
-            LeadClassifier(),
-            LeadScorer(),
-            LeadStorage(),
-            LeadNotifier()
-        ]
+        logging.info("LeadPipeline initialized (legacy compatibility mode)")
+
+        # pipeline legacy (no longer used by Orion ExecutionRouter)
+        self.steps = []
 
     def execute(self, state):
 
-        for step in self.steps:
-
-            state = step.execute(state)
+        logging.warning(
+            "LeadPipeline is deprecated. Execution handled by ExecutionRouter."
+        )
 
         return state

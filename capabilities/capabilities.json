@@ -26,14 +26,14 @@
         "store_result"
       ],
       "metrics": {
-        "usage_count": 187,
-        "success_count": 186,
-        "avg_execution_time": 0.000235000396157331
+        "usage_count": 188,
+        "success_count": 187,
+        "avg_execution_time": 0.0002389436072491585
       },
       "status": "stable"
     },
     {
-      "name": "auto_pipeline_9577",
+      "name": "auto_pipeline_4167",
       "steps": [
         "analyze_input",
         "validate_data",
@@ -49,7 +49,7 @@
       }
     },
     {
-      "name": "auto_pipeline_2645",
+      "name": "auto_pipeline_3967",
       "steps": [
         "run_capability:auto_pipeline_1375"
       ],
@@ -60,7 +60,7 @@
       }
     },
     {
-      "name": "auto_pipeline_9577",
+      "name": "auto_pipeline_4167",
       "steps": [
         "analyze_input",
         "validate_data",
@@ -75,7 +75,7 @@
       }
     },
     {
-      "name": "auto_pipeline_9050",
+      "name": "auto_pipeline_5138",
       "steps": [
         "action:webhook:send",
         "action:api:users"
@@ -87,7 +87,7 @@
       }
     },
     {
-      "name": "auto_pipeline_5682",
+      "name": "auto_pipeline_5585",
       "steps": [
         "run_capability:test_capability"
       ],
@@ -98,7 +98,7 @@
       }
     },
     {
-      "name": "auto_pipeline_7401",
+      "name": "auto_pipeline_2457",
       "steps": [
         "run_capability:webhook_sender",
         "run_capability:user_creator"
@@ -110,7 +110,7 @@
       }
     },
     {
-      "name": "auto_pipeline_3185",
+      "name": "auto_pipeline_7694",
       "steps": [
         "run_capability:webhook_sender"
       ],
@@ -121,7 +121,7 @@
       }
     },
     {
-      "name": "auto_pipeline_7401",
+      "name": "auto_pipeline_2457",
       "steps": [
         "run_capability:webhook_sender",
         "run_capability:user_creator",
@@ -134,7 +134,39 @@
       }
     },
     {
-      "name": "meta_pipeline_6439",
+      "name": "auto_pipeline_3717",
+      "steps": [
+        "capture_lead",
+        "clean_data",
+        "classify_lead",
+        "store_lead",
+        "notify_sales"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "auto_pipeline_2675",
+      "steps": [
+        "acquire_lead",
+        "capture_lead",
+        "clean_data",
+        "classify_lead",
+        "score_lead",
+        "store_lead",
+        "notify_sales"
+      ],
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "meta_pipeline_8535",
       "steps": [
         "analyze_input",
         "validate_data",
@@ -150,11 +182,45 @@
       }
     },
     {
-      "name": "meta_pipeline_2655",
+      "name": "meta_pipeline_4417",
       "steps": [
         "run_capability:webhook_sender",
         "run_capability:user_creator",
         "run_capability:user_segmenter"
+      ],
+      "type": "meta",
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "meta_pipeline_1401",
+      "steps": [
+        "capture_lead",
+        "clean_data",
+        "classify_lead",
+        "store_lead",
+        "notify_sales"
+      ],
+      "type": "meta",
+      "metrics": {
+        "usage_count": 0,
+        "success_count": 0,
+        "avg_execution_time": 0
+      }
+    },
+    {
+      "name": "meta_pipeline_4882",
+      "steps": [
+        "acquire_lead",
+        "capture_lead",
+        "clean_data",
+        "classify_lead",
+        "score_lead",
+        "store_lead",
+        "notify_sales"
       ],
       "type": "meta",
       "metrics": {

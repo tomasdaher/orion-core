@@ -17,3 +17,10 @@ class LeadClassifier:
         print(f"🏷 Lead classified: {lead.category}")
 
         return state
+
+
+def classify_lead(state):
+
+    handler = LeadClassifier()
+
+    return handler.execute(state)

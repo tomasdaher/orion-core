@@ -1,5 +1,6 @@
 from core.execution_request import Objective
 from bootstrap import build_system
+from core.cognition.cognitive_loop import CognitiveLoop
 import logging
 
 
@@ -20,10 +21,9 @@ def main():
         "input": "example raw data"
     }
 
-    orchestrator.handle_request(
-        Objective.PROCESS,
-        state
-    )
+    loop = CognitiveLoop(orchestrator)
+
+    loop.run(state)
 
 
 if __name__ == "__main__":

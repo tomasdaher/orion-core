@@ -21,3 +21,10 @@ class LeadCapture:
         state["lead"] = lead
 
         return state
+
+
+def capture_lead(state):
+
+    handler = LeadCapture()
+
+    return handler.execute(state)

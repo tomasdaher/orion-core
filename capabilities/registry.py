@@ -53,3 +53,25 @@ class CapabilityRegistry:
         data = self.load()
 
         return any(c["name"] == name for c in data["capabilities"])
+
+    def get_capability(self, name: str):
+
+        """
+        Retrieve capability by name.
+        Compatible with ExecutionRouter.
+        """
+
+        capabilities = self.list_capabilities()
+
+        for capability in capabilities:
+
+            cap_name = capability.get("name")
+
+            if cap_name == name:
+                return capability
+
+            # soporte para nombres normalizados
+            if cap_name and cap_name.lower() == name.lower():
+                return capability
+
+        return None

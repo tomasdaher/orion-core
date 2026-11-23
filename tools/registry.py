@@ -53,3 +53,24 @@ class ToolRegistry:
         data = self.load()
 
         return data.get("tools", [])
+
+    def get_tool(self, name: str):
+
+        """
+        Retrieve tool by name.
+        Compatible with ExecutionRouter.
+        """
+
+        tools = self.list_tools()
+
+        for tool in tools:
+
+            tool_name = tool.get("name")
+
+            if tool_name == name:
+                return tool
+
+            if tool_name and tool_name.lower() == name.lower():
+                return tool
+
+        return None
